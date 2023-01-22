@@ -14,7 +14,7 @@ import {filterImageFromURL, deleteLocalFiles, deleteFiles, createResponseMessage
   app.use(bodyParser.json());
 
   app.get( "/filteredimage", async(req: Request, res: Response) => {
-    let { image_url } = req.query;
+    let { image_url }: { image_url: string } = req.query;
     if (!image_url){
       res.status(400)
         .send(createResponseMessage('No image url! Please try to send a request with an url.'));
