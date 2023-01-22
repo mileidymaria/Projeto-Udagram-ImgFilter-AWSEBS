@@ -23,7 +23,7 @@ import {filterImageFromURL, deleteLocalFiles, deleteFiles, createResponseMessage
       let path = await filterImageFromURL(image_url);
       console.log(`Image path ${path}`);
       res.status(200)
-        .sendFile(path, () => deleteFiles([path]));
+        .sendFile(path, {}, () => deleteFiles([path]));
     } catch(err){
       res.status(400)
         .send(createResponseMessage('Image could not be filtered! Please review the url!', err))
